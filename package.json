@@ -1,0 +1,37 @@
+{
+  "name": "easy-shell",
+  "version": "1.0.0",
+  "description": "Nuxt + Electron",
+  "author": "Eddie Rietz <eddie@mindable.health>",
+  "private": true,
+  "main": "main.js",
+  "build": {
+    "appId": "com.easyshell.deploy",
+    "directories": {
+      "buildResources": "static"
+    }
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=DEV electron .",
+    "build": "nuxt build && electron-builder"
+  },
+  "dependencies": {
+    "@fortawesome/vue-fontawesome": "^2.0.0",
+    "child_process": "^1.0.2",
+    "codemirror": "^5.58.2",
+    "nuxt": "^1.4.0",
+    "vue-highlightjs": "^1.3.3",
+    "vuep": "^0.8.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "cross-env": "^5.1.4",
+    "electron": "2.0.0-beta.7",
+    "electron-builder": "^20.8.1",
+    "electron-devtools-installer": "^2.2.3",
+    "eslint": "^4.15.0",
+    "eslint-friendly-formatter": "^3.0.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-vue": "^4.0.0"
+  }
+}

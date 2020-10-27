@@ -1,21 +1,41 @@
 <template>
   <section>
-    <div>
-      <div class="header">
-        Header
-      </div>
-      <ScriptCard />
+    <div class="background width-screen height-screen">
+      <h3 class="header">easy_script</h3>
+      <section class="content">
+        <div
+          v-for="(item, index) in state.scripts"
+          :key="index"
+          class="grid-container "
+        >
+          <div @click="execute(item)" class="grid-item card btn">
+            {{ item.name }}
+            <!-- <pre v-highlightjs="item.shell"><code class="javascript"></code></pre> -->
+          </div>
+        </div>
+      </section>
       <div
-        v-for="(item, index) in state.scripts"
-        :key="index"
-        class="grid-container"
+        style="position:fixed;width:100%;bottom:0;padding:20px"
+        class="background"
       >
-        <div @click="execute(item)" class="grid-item boxShadow">
-          {{ item.name }}
-          <pre v-highlightjs="item.shell"><code class="javascript"></code></pre>
+        <p>Script Name</p>
+        <input
+          style="width:100%"
+          @change="(v) => (newShellName = v.target.value)"
+          placeholder="What needs to be done?"
+        />
+        <div>
+          <p>Script</p>
+          <input
+            style="width:100%"
+            @change="(v) => (newShellScript = v.target.value)"
+            placeholder="What needs to be done?"
+          />
+        </div>
+        <div>
+          <button @click="addScript" class="btn">Add new easy shell</button>
         </div>
       </div>
-      <input @keyup.enter="addScript" placeholder="What needs to be done?" />
     </div>
   </section>
 </template>
@@ -27,16 +47,19 @@ export default {
       return this.$store.state;
     },
   },
+  data: () => ({
+    newShellName: "",
+    newShellScript: "",
+  }),
   methods: {
     execute(scriptObj) {
       this.$store.commit("executeScript", scriptObj);
     },
-    addScript(e) {
+    addScript() {
       const script = {
-        name: new Date().toISOString(),
-        shell: e.target.value,
+        name: this.newShellName,
+        shell: this.newShellScript,
       };
-      e.target.value = "";
       this.$store.commit("addScript", script);
     },
   },
@@ -44,27 +67,24 @@ export default {
 </script>
 
 <style scoped>
+.content {
+  padding: 10px;
+  overflow: scroll;
+}
 .grid-container {
-  min-width: 100vw;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto;
 }
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  margin: 10px;
+  margin-bottom: 10px;
   border-radius: 12px;
   padding: 12px;
-
   font-size: 30px;
-  text-align: center;
+  text-align: left;
 }
 .header {
-  text-align: center;
-  padding: 40px;
-}
-.boxShadow {
-  -webkit-box-shadow: 3px 3px 22px -7px rgba(102, 102, 102, 0.6);
-  -moz-box-shadow: 3px 3px 22px -7px rgba(102, 102, 102, 0.6);
-  box-shadow: 3px 3px 22px -7px rgba(102, 102, 102, 0.6);
+  text-align: left;
+  padding: 30px;
+  font-family: "Courier New", Courier, monospace;
 }
 </style>

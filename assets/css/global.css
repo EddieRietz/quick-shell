@@ -11,9 +11,18 @@ html {
 body {
 	font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
+a p h1 h2 h3 h4 h5 h6{
+	color: #E5E5E5;
+}
 *, *:before, *:after {
 	box-sizing: border-box;
 	margin: 0;
+}
+.width-screen{
+	min-width: 100vw;
+}
+.height-screen{
+	min-height:  100vh;
 }
 .btn, .pointer {
 	cursor: pointer;
@@ -26,9 +35,30 @@ body {
 }
 .btn-primary {
 	background-color: var(--primary);
-	color: #fff;
+	color: var(--g1);
 }
 .btn-secondary {
 	background-color: var(--secondary);
-	color: #000;
+	color: var(--g2);
 }
+.btn-dark {
+	background-color: var(--g4);
+	color: var(--g2);
+}
+.background {
+	background-color: var(--canvas);
+	color: var(--g2);
+}
+.card {
+	background-color: var(--card);
+}
+.card :hover{
+	background-color: var(--primary);
+}
+.line-vertical {
+	background-color: var(--g3);
+	color: var(--g3);
+	width: 2px;
+}
+
+

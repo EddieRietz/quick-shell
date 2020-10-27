@@ -1,4 +1,10 @@
 :root {
-	--primary: #00b786;
-	--secondary: #8ceaf6;
+	--primary: #313442; /* btn */
+	--secondary: #343355; /* btn-edit */
+	--g1: #E5E5E5; /* font */
+	--g2: #828282; /* dark-font */
+	--g3: #67686E; /* line */
+	--g4: #22242E; /* btn-dark */
+	--card: #292C38; /* card */
+	--canvas: #1A1D27; /* cavas */
 }

@@ -1,8 +1,8 @@
 <template>
   <section>
-    <div class="background width-screen height-screen">
+    <div class=" background width-screen height-screen content">
       <h3 class="header">easy_script</h3>
-      <section class="content">
+      <section>
         <div
           v-for="(item, index) in state.scripts"
           :key="index"
@@ -15,19 +15,19 @@
         </div>
       </section>
       <div
-        style="position:fixed;width:100%;bottom:0;padding:20px"
+        style="position:fixed;width:100%;bottom:0;margin:20px"
         class="background"
       >
         <p>Script Name</p>
         <input
-          style="width:100%"
+          style="width:60%"
           @change="(v) => (newShellName = v.target.value)"
           placeholder="What needs to be done?"
         />
         <div>
           <p>Script</p>
           <input
-            style="width:100%"
+            style="width:60%"
             @change="(v) => (newShellScript = v.target.value)"
             placeholder="What needs to be done?"
           />
@@ -68,7 +68,7 @@ export default {
 
 <style scoped>
 .content {
-  padding: 10px;
+  padding: 30px;
   overflow: scroll;
 }
 .grid-container {
@@ -76,7 +76,7 @@ export default {
   grid-template-columns: auto;
 }
 .grid-item {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 12px;
   padding: 12px;
   font-size: 30px;

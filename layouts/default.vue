@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <body style="-webkit-app-region: drag">
     <nuxt />
-  </div>
+  </body>
 </template>

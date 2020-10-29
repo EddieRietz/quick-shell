@@ -1,0 +1,17 @@
+{
+  "name": "npm-install_and_run_dev", // "npm" is the project or group and "install_and_run_dev" is the script name
+  "script": [
+    "cd [path]", // uses provided path variable, or asks if ask_for_path is true - executed in cli this will not be considered
+    "npm i [$] {--save-dev $} {$}", // [$] defines a required variable, {$} defines a optional variable, {--save-dev $} defines a optional variable with a prefix
+    "npm-run_dev" // includes a different qsh script
+  ], // add multiple actions as list
+  "opt": [
+    "Application Name", // translates to -a and --application_name
+    "Dev", // translates to -d and --dev
+    "Custom" // translates to -c and --custom
+  ],
+  "path": "/", // defines the default path, if executed in cli, this will not be considered
+  "ask_for_path": true, // default is false,
+  "short_key": ["cmd", "all", "-"], // shortcut in qsh interface
+  "$": "qsh npm install_and_run_dev -a qsh --dev -c '--save-exact'"
+}

@@ -1,7 +1,10 @@
 <template>
   <section>
     <div class=" background width-screen height-screen content">
-      <h3 class="header">easy_script</h3>
+      <div>
+        <h3 @click="load" class="header btn">qsh</h3>
+      </div>
+
       <section>
         <div
           v-for="(item, index) in state.scripts"
@@ -51,7 +54,11 @@ export default {
     newShellName: "",
     newShellScript: "",
   }),
+
   methods: {
+    load() {
+      this.$store.commit("loadScripts");
+    },
     execute(scriptObj) {
       this.$store.commit("executeScript", scriptObj);
     },

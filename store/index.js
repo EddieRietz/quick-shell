@@ -40,14 +40,14 @@ export const mutations = {
         });
       },
     });
-    const saveList = state.scripts;
     localStorage.setItem(
       "STORAGE_KEY",
       JSON.stringify(
-        saveList.map((s) => {
-          delete s.execute;
-          return s;
-        })
+        state.scripts.map((s) => ({
+          id: s.id,
+          name: s.name,
+          shell: s.shell,
+        }))
       )
     );
   },
@@ -58,12 +58,7 @@ export const mutations = {
     const editScript = state.scripts.filter((item) => item.id !== script.id);
   },
   executeScript(state, script) {
+    console.log(script);
     script.execute();
   },
 };
-
-/// script: {
-///     shell: "",
-///     id: "",
-///     name: ""
-/// }

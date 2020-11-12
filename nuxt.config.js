@@ -1,6 +1,6 @@
 module.exports = {
   mode: "spa",
-  head: { title: "easy-shell" }, // Headers of the page
+  head: { title: "quick-shell" }, // Headers of the page
   loading: false, // Disable default loading bar
   components: true,
   build: {

@@ -1,11 +1,14 @@
 const { exec } = require("child_process");
+const Store = require("electron-store");
+
+const store = new Store();
 export const state = () => ({
   scripts: [],
 });
 
 export const mutations = {
   loadScripts(state) {
-    state.scripts = JSON.parse(localStorage.getItem("STORAGE_KEY") || "[]");
+    state.scripts = JSON.parse(store.get("STORAGE_KEY") || "[]");
     console.log(state.scripts);
     state.scripts = state.scripts.map((s) => ({
       ...s,
@@ -40,7 +43,7 @@ export const mutations = {
         });
       },
     });
-    localStorage.setItem(
+    store.set(
       "STORAGE_KEY",
       JSON.stringify(
         state.scripts.map((s) => ({

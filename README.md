@@ -1,6 +1,10 @@
-# quick-shell
+# qsh (quick-shell)
 
-> Nuxt + Electron
+### Quickly execute small shell scripts
+
+Made with Nuxt + Electron
+
+![Preview Video](./docs/video.gif)
 
 ## Build Setup
 
